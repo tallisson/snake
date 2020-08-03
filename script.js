@@ -1,4 +1,35 @@
 window.onload = () => {
+  function keyListener(code) {    
+    if(move == "x" && code == 38) {      
+      // up
+      move = "y";
+      vx = 0;
+      vy = -vel;
+      return;
+    }
+    if(move == "x" && code == 40) {
+      // down
+      move = "y";
+      vx = 0;
+      vy = vel;
+      return;
+    }
+    if(move == "y" && code == 37) {
+      // left
+      move = "x";
+      vx = -vel;
+      vy = 0;
+      return;
+    }
+    if(move == "y" && code == 39) {
+      // right
+      move = "x";
+      vx = vel;
+      vy = 0;
+      return;
+    }
+  }
+  
   let stage = document.getElementById("stage");  
   let ctx = stage.getContext("2d");
   
@@ -6,7 +37,7 @@ window.onload = () => {
   let pScore = document.getElementsByClassName("p-score")[0];
 
   document.addEventListener("keydown", () => {
-    keyListener(event);
+    keyListener(event.keyCode);
   });
 
   const vel = 1;
@@ -65,34 +96,23 @@ window.onload = () => {
     }
   }, 60);
 
-  function keyListener(event) {    
-    if(move == "x" && event.keyCode == 38) {      
-      // up
-      move = "y";
-      vx = 0;
-      vy = -vel;
-      return;
-    }
-    if(move == "x" && event.keyCode == 40) {
-      // down
-      move = "y";
-      vx = 0;
-      vy = vel;
-      return;
-    }
-    if(move == "y" && event.keyCode == 37) {
-      // left
-      move = "x";
-      vx = -vel;
-      vy = 0;
-      return;
-    }
-    if(move == "y" && event.keyCode == 39) {
-      // right
-      move = "x";
-      vx = vel;
-      vy = 0;
-      return;
-    }
-  }
+  const btnLeft = document.getElementById("left");
+  btnLeft.addEventListener("click", () => {
+    keyListener(37)
+  });
+
+  const btnRight = document.getElementById("right");
+  btnRight.addEventListener("click", () => {
+    keyListener(39)
+  });
+
+  const btnUp = document.getElementById("up");
+  btnUp.addEventListener("click", () => {
+    keyListener(38)
+  });
+
+  const btnDown = document.getElementById("down");
+  btnDown.addEventListener("click", () => {
+    keyListener(40)
+  });
 };
