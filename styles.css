@@ -1,0 +1,28 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+html,
+body {
+  width: 100vw;
+}
+
+body {
+  background-color: #ecf0f1;
+}
+
+.content {
+  text-align: center;
+}
+
+.title {
+  margin: 20px 10px 1px 10px;
+  padding-top: 30px;
+
+  color: #2c3e50;
+  text-transform: uppercase;      
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
